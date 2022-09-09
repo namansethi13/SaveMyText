@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^$t$^6h$kborx07r0reavg28bz+)=bpcq5@2^5@ik-15e5a0$o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -76,23 +77,23 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'rxjaopcl',
-    'USER': 'rxjaopcl',
-    'PASSWORD': 'vx9skW3jSQW3TWgsILlSJZ5ftK1LwVh2',
-    # ↓ HOST instead of HOSTS
-    'HOST': 'arjuna.db.elephantsql.com',
-    'PORT': 5432
-  }
-}
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#   'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'rxjaopcl',
+#     'USER': 'rxjaopcl',
+#     'PASSWORD': 'vx9skW3jSQW3TWgsILlSJZ5ftK1LwVh2',
+#     # ↓ HOST instead of HOSTS
+#     'HOST': 'arjuna.db.elephantsql.com',
+#     'PORT': 5432
+#   }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation

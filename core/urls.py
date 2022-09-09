@@ -17,8 +17,13 @@ from django.contrib import admin
 from django.urls import path , include
 from sitehandler import views as sitehandler_views
 import sitehandler
+
+from django.views.static import serve
+from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     path('savetext', sitehandler_views.savetext, name = "savetext"),
     path('',include("home.urls")),
     path('<slug:site_url>/',sitehandler_views.open_page),
