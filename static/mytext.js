@@ -268,7 +268,7 @@ class alertBox {
 
 
                 ////////////send data in ajax///////////////
-                ajaxpage = document.getElementById("ajaxpage").getAttribute("pageurl")
+                let ajaxpage = document.getElementById("ajaxpage").getAttribute("pageurl")
                 let thispage = window.location.pathname;
                 sendajax(thispage,textlist,validator,ajaxpage);
 
