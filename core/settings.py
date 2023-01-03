@@ -82,7 +82,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'rxjaopcl',
     'USER': 'rxjaopcl',
-    'PASSWORD': 'vx9skW3jSQW3TWgsILlSJZ5ftK1LwVh2',
+    'PASSWORD': '___Password_here__',
     # ↓ HOST instead of HOSTS
     'HOST': 'arjuna.db.elephantsql.com',
     'PORT': 5432
