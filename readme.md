@@ -1,5 +1,5 @@
 # SaveMyText
-Save my text is a web app which allows users to store their text on the web in an ecvrypted form and access it from anywhere. The password used for saving the text never leaves the browser which makes it very secure. 
+Save my text is a web app which allows users to store their text on the web in an ecrypted form and access it from anywhere. The password used for saving the text never leaves the browser which makes it very secure. 
 
 ## How it works
 
