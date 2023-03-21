@@ -7,16 +7,17 @@ from .models import Sites , Page
 # Create your views here.
 def open_page(request,site_url):
     sites = Sites.objects.filter(site_url= f"/{site_url}/")
-    # print(sites['Sites'])
     
     if(len(sites)== 0):
 
         availablity = {"available" : "true"}
     else:   
         textboxes = Page.objects.filter(site__in=Sites.objects.filter(site_url= f"/{site_url}/"))
-        print(sites)
+
+  # Get a list of page titles
+        # print(sites)
         validator = sites[0].validator
-        print(textboxes)
+        # print("hello",page_titles)
         availablity = {"available" : "false",
                         "textboxes" : textboxes,
                         "validator" : validator}

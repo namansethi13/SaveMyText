@@ -1,206 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-
-:root {
-    --red: #FD4556;
-    --redDark: #BD3944;
-    --brown: #53212B;
-    --white: #FFFBF5;
-    --black: #000000;
-}
-
-
-* {
-    padding: 0%;
-    margin: 0%;
-    font-family: 'Ubuntu', sans-serif;
-
-}
-
-.working {
-    color: var(--white);
-
-    position: absolute;
-    height: 50%;
-    width: 100%;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-    overflow: hidden;
-}
-
-.create {
-    width: 50%;
-    height: 50%;
-    margin: 0 auto;
-    margin-top: 5%;
-    padding: 10px;
-    position: relative;
-}
-
-.createown {
-    font-size: 300%;
-    margin-bottom: 3%;
-}
-
-
-
-.url {
-    display: flex;
-    justify-content: center;
-
-}
-
-.url:nth-child(3) {
-    margin-left: 10%;
-}
-.break {
-    flex-basis: 100%;
-    height: 0;
+@import"https://use.typekit.net/rcr1opg.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*, *::before, *::after {
+    box-sizing: border-box;
   }
-.url p {
-    margin-right: 0.4rem;
-    margin-top: 0.6rem;
-    font-size: 200%;
-}
-
-
-
-
-.myBtn {
-    margin-left: 2%;
-    cursor: pointer;
-    background: var(--black);
-    width: 4.5rem;
-    height: 3.5rem;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: .5rem;
-    box-shadow: rgba(17, 12, 46, 0.22) 0px 48px 100px 0px;
-    transition: all 2s 1s;
-}
-
-
-.myBtn a {
-    text-decoration: none;
-    color: var(--redDark);
-    font-size: 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.l-1 {
-    animation: g-up-l .9s ease-out, g-up-l 2s infinite ease-out forwards .7s;
-}
-
-.l-2 {
-    animation: g-up-l 1s ease-out forwards .1s, g-up-l 2s infinite ease-out forwards .8s;
-}
-.myBtn:hover {
-    transform: scale(1.2);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-@keyframes g-up-l {
-    0% {
-        color: var(--red);
-    }
-
-    50% {
-        color: var(--redDark);
-    }
-    
-    100% {
-        color: var(--brown);
-    }
-}
-@media only screen and (max-width: 768px) {
-    [class*="createown"] {
-    /* display: none; */
-    font-size: 30px;
-      }
-    
-    [class*="url"] {
-    
-        flex-direction: column;
-        font-size: 80%;
-        /* margin-left: -50%; */
-
-
-      }
-      }
-.how {
-    position: absolute;
-    top: 50%;
-    height: 50%;
-    width: 100%;
-    overflow: hidden;
-}
-
-.how p{
-    color: var(--black);
-
-}
-
-#urlInput{
-    font-size: 200%;
-    color: var(--black);
-}
-
-.popup{
-    background-color: var(--red);
-    color: var(--black);
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    height: 5rem;
-    width: 20rem;
-}
-
-#alert1:target{
-    visibility: visible;
+ 
+  * {
+    margin: 0;
+    font-family: sofia-pro,sans-serif
+  }
+  html, body {
+    height: 100%;
+    background-color: #171717;
+    color: #FFFFFF;
   }
 
-   
-      
+.navlist{
+  list-style: none;
+}
 
-  .alert-box input{
-    margin: auto;
-  display: block;
-  }
-  .alert-box {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    background-color: #fff;
-    border-radius: 10px;
-    color: #404040;
-    left: 50%;
-    min-width: 300px;
-    position: absolute;
-    top: 30%;
-    /* transform: translate(-50%, -50%); */
-    width: 350px;
+.color-red{
+  color: #e96479
+}
 
-  }
-  .alert-message {
-    line-height: 1.4;
-    padding: 30px;
-    width: 100%;
-  }
-  .alert-buttons {
-    border-top: thin solid #ddd;
-    text-align: center;
-    width: 100%;
-  }
-  .alert-buttons a {
-    border-right: thin solid #ddd;
-    color: #404040;
-    display: inline-block;
-    line-height: 40px;
-    text-decoration: none;
-    width: 49%;
-  }
-  .alert-buttons a:last-of-type {
-    border-right: none;
-  }
-  .alert-buttons a:hover {
-    color: #358cc6;
-  }
+.color-green{
+  color: #7DB9B6;
+}

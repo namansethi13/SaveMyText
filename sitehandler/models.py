@@ -9,6 +9,7 @@ class Sites(models.Model):
     created_on = models.DateTimeField(editable=False)
     last_updated = models.DateTimeField()
     validator = models.TextField(null=True,blank=True)
+
     # def __str__(self):
     #     return "%d" % (self.sid)
 

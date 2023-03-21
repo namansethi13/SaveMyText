@@ -1,7 +1,7 @@
 let alertboxbool = false;
 // console.log('hello');
 // let ajaxpage = document.getElementById('ajax_page').getAttribute("ajaxpage")
-console.log("pk")
+// console.log("pk")
 // console.log(ajaxpage)
 class alertBox {
     constructor(data) {
@@ -27,11 +27,17 @@ class alertBox {
     }
 }
 
-
 let goBtn = document.getElementById('goBtn');
+let urlform = document.getElementById('urlform');
+urlform.addEventListener('keypress', function(event) {
+        if (event.key == 'enter') {
+            event.preventDefault();
+           goBtn.click
+        }
+    });
 
 goBtn.onclick = () =>{
-    // console.log("hello")
+    console.log("hello")
     document.getElementById("urlform").action = document.getElementById('urlInput').value;
     document.getElementById('urlform').submit();
 }

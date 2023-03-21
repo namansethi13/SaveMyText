@@ -9,49 +9,175 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'tailwind.css' %}">
+
+    {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+    <style>
+        .fadeinleft {
+            opacity:0;
+            margin-left:-300px;	
+            max-width:100%;
+        }
+    </style>
     {% comment %} <meta ajaxpage="{% url 'open_page_ajax' %}"
     id = "ajax_page"> {% endcomment %}
-    
+
 </head>
-<body>
-    <section class="working">
-        <form method="get" id="urlform">
-            <div class="create">
-                <p class="createown">Enter An Existing Address or create your own</p>
-                <div class="url">
-                    <p class="starting">SaveMyText.in/</p>
-                    <input id="urlInput" type="text" >
-                    <div class="myBtn" ><a id="goBtn" <span class="l-1">g</span><span class="l-2">o</span></a></div>
+<body class="background overflow-hidden overflow-y-scroll">
+    <nav class="navbar mt-5">
+        <ul class="navlist flex flex-row justify-center md:justify-around">
+            <a href="{%url 'home' %}"><li><span class="logo hidden md:block  hover:cursor-pointer">
+                <svg viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" width="100px" height="100px"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M22 5V19C22 20.1046 21.1046 21 20 21H4C2.89543 21 2 20.1046 2 19V5C2 3.89543 2.89543 3 4 3H20C21.1046 3 22 3.89543 22 5Z" stroke="#000000" stroke-width="1.5"></path> <path d="M2 12H6" stroke="#000000" stroke-width="1.5"></path> <path d="M6 3V21" stroke="#000000" stroke-width="1.5"></path> <path d="M15.5 11.5L12 14.5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M17 10.01L17.01 9.99889" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span></li></a>
+                <a href="#footer"><li class="font-extrabold text-xl mr-16 md:mt-8 hover:cursor-pointer">Contact me</li></a>
+                <a href="#working"><li class="font-extrabold text-xl md:mt-8 hover:cursor-pointer">How Does it work?</li></a>
+        </ul>
+    </nav>
+
+    <main class="mt-12 md:mt-12" id="main">
+        <p class="mainText font-extrabold text-7xl  text-center">ENTER AN <span class="color-red">EXISTING</span> URL OR CREATE YOUR  <span class="color-green">NEW</span> ONE!</p>
+        <div class="emoji flex justify-center text-5xl mt-7 animate-bounce">👇</div>
+        <div class="url">
+            <form method="get" id="urlform">
+
+            <div class="flex justify-center mt-10">
+                <p class="urlName hidden md:block font-extrabold text-6xl">save-my-text.com/</p>
+                <input type="text" class="siteName rounded-md w-80 h-12 text-3xl text-black md:mt-4" id="urlInput">
+            </div>
+            <div class="flex justify-center mt-6">
+                <button type="button" id="goBtn" class="bg-red-400 inline-block rounded-lg bg-primary px-10 py-4 text-xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"><p class="font-bold text-5xl">GO!</p></button>
+            </div>
+        </form>
+        </div>
+        </div>
+        <div class="flex justify-center">
+            <div class="line w-52 h-3 rounded-md bg-white mt-12"></div>
+        </div>
+        <div class="working mt-12" id="working">
+            <div class="heading font-extrabold text-6xl text-center">HOW DOES IT WORK?</div>
+            <div class="steps fadeinleft sm:flex sm:justify-between md:justify-center md:mt-40">
+                <p class="workingText font-bold text-2xl mt-12 ml-4 md:text-4xl">User can enter text/notes on our website</p>
+                <img src="https://media.tenor.com/jNgKSlUpmkEAAAAC/typing-laptop.gif" alt="" class="catgif w-50 h-52 mt-8 ml-24">
+            </div>
+            <div class="steps fadeinleft sm:flex sm:justify-between md:justify-center  md:mt-40">
+                <p class="workingText  font-bold text-2xl mt-12 ml-4 md:text-4xl">We will encode the text for you in your browser!</p>
+                <img src="https://media.tenor.com/ogsH7Ailje8AAAAd/cat-funny-cat.gif" alt="" class="catgif w-50 h-52 mt-8 ml-24">
+            </div>
+            <div class="steps fadeinleft flex sm:justify-center md:hidden md:mt-40">
+                <p class="workingText font-bold text-2xl mt-12 ml-4">
+                    cats are cool<svg fill="none" stroke="currentColor" stroke-width="1.5" width="100" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="inline-block">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                      </svg><br> 0832c1202da8d382318e...
+                </p>
+            </div>
+            <div class="steps fadeinleft flex justify-center hidden md:inline-block md:flex first-letter:md:justify-center md:mt-40">
+                <p class="workingText font-bold text-2xl mt-12 ml-4 md:text-5xl">
+                    cats are cool<svg fill="none" stroke="currentColor" stroke-width="1.5" width="100" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="inline-block">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                      </svg>0832c1202da8d382318e329a7c133ea0
+                </p>
+            </div>
+            <div class="steps fadeinleft sm:flex sm:justify-between md:justify-center md:mt-40">
+                <p class="workingText  font-bold text-2xl mt-12 ml-4 md:text-4xl" >The text is then stored in our database</p>
+                <img src="https://media.tenor.com/ogsH7Ailje8AAAAd/cat-funny-cat.gif" alt="" class="catgif w-50 h-52 mt-8 ml-24">
+            </div>
+            <div class="steps fadeinleft sm:flex sm:justify-between md:justify-center md:mt-40">
+                <p class="workingText  font-bold text-2xl mt-12 ml-4 md:text-4xl">User can then view the text next time they come</p>
+                <img src="https://media.tenor.com/jNgKSlUpmkEAAAAC/typing-laptop.gif" alt="" class="catgif w-50 h-50 mt-8 ml-24">
+            </div>
+        </div>
+
+        <div class="help">
+            <p class="heading font-extrabold text-6xl mt-24 text-center ">How does it Help?</p>
+            <div class="steps fadeinleft sm:flex sm:justify-between md:justify-center md:mt-40">
+                <p class="workingText  font-bold text-2xl mt-12 ml-4 md:text-4xl">If incase our database is hacked by a bad actor</p>
+                <img src="https://media.tenor.com/4EAKayO3n_cAAAAC/kitten-cat.gif" alt="" class="catgif w-50 h-52 mt-8 ml-24">
+            </div>
+            <div class="steps fadeinleft sm:flex sm:justify-between md:justify-center md:mt-40" >
+                <p class="workingText  font-bold text-2xl mt-12 ml-4 md:text-4xl">The text stored on our database will make no sense to them</p>
+                <img src="https://media.tenor.com/2H09Sme8a2wAAAAd/salem-sobbing.gif" alt="" class="catgif w-50 h-52 mt-8 ml-24">
+            </div>
+        </div>
+        <div class="ending">
+            <p class="heading font-extrabold text-6xl mt-16 text-center">YOUR DATA IS SECURE!</p>
+            <div class="flex justify-center">
+                <a href="#main" ><button type="button" class="bg-red-400 mt-6 ml-3 inline-block rounded-2xl bg-primary px-2 py-5 text-xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"><p class="font-bold text-4xl">SAVE MY TEXT!</p></button></a>
+            </div>
+        </div>
+<div class="flex justify-center mt-28">
+
+    <div class="line w-52 h-3 rounded-md bg-white mt-12"></div>
+</div>
+
+        <footer id="footer">
+            <div class="touch">
+                <p class="footerText text-lg mt-4 text-center">Want to get in touch?</p>
+                <div class="links">
+                    <ul class="flex justify-center mt-2">
+                        <a href="https://www.linkedin.com/in/naman-sethi-295427204/"><li class = "m-2  hover:cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" id="Layer_1" viewBox="-143 145 512 512" xml:space="preserve" class="w-12">
+                            <g>
+                                <path d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z    M339,617c0,5.5-4.5,10-10,10h-432c-5.5,0-10-4.5-10-10V185c0-5.5,4.5-10,10-10h432c5.5,0,10,4.5,10,10V617z" fill="white"/>
+                                <rect x="-8.5" y="348.4" width="49.9" height="159.7" fill="white"/>
+                                <path d="M177.7,346.9c-28.6,0-46.5,15.6-49.8,26.6v-25.1H71.8c0.7,13.3,0,159.7,0,159.7h56.1v-86.3c0-4.9-0.2-9.7,1.2-13.1   c3.8-9.6,12.1-19.6,27-19.6c19.5,0,28.3,14.8,28.3,36.4v82.6H241v-88.8C241,369.9,213.2,346.9,177.7,346.9z" fill="white"/>
+                                <path d="M15.4,273c-18.4,0-30.5,11.9-30.5,27.7c0,15.5,11.7,27.7,29.8,27.7h0.4c18.8,0,30.5-12.3,30.4-27.7   C45.1,284.9,33.8,273,15.4,273z" fill="white"/>
+                            </g>
+                            </svg></li></a>
+                            <a href="https://github.com/namansethi13/">  <li class = "m-2  hover:cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 32 32" stroke="#ffffff" class="w-12">
+
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                
+                                <g id="SVGRepo_iconCarrier">
+                                
+                                <path d="M24.92 12.183c0-1.586-.604-2.864-1.585-3.83.172-.547.398-1.763-.229-3.321 0 0-1.114-.348-3.628 1.315a12.695 12.695 0 0 0-3.081-.366c-1.154 0-2.322.143-3.409.44-2.596-1.747-3.74-1.391-3.74-1.391-.748 1.847-.287 3.215-.145 3.554-.883.936-1.414 2.133-1.414 3.594 0 1.111.128 2.099.44 2.964l.325.732c.879 1.614 2.606 2.655 5.677 2.983-.434.289-.885.779-1.062 1.612-.594.28-2.475.966-3.603-.944 0 0-.633-1.148-1.842-1.235 0 0-1.174-.017-.08.722 0 0 .782.367 1.326 1.738 0 0 .705 2.342 4.114 1.593v2.417s-.076.857-.867 1.143c0 0-.469.312.034.497 0 0 2.205.174 2.205-1.604v-2.643s-.09-1.047.429-1.404v4.332s-.032 1.031-.576 1.421c0 0-.362.646.433.468 0 0 1.517-.211 1.584-1.967l.035-4.383h.363l.033 4.383c.076 1.748 1.59 1.967 1.59 1.967.793.179.429-.468.429-.468-.54-.389-.579-1.421-.579-1.421v-4.297c.52.402.436 1.369.436 1.369v2.643c0 1.777 2.2 1.604 2.2 1.604.505-.186.036-.498.036-.498-.793-.286-.867-1.143-.867-1.143v-3.461c0-1.346-.574-2.056-1.137-2.435 3.277-.318 4.845-1.368 5.572-2.99-.015.027.26-.726.26-.726.25-.859.325-1.855.325-2.963h-.002z"/>
+                                
+                                </g>
+                                
+                                </svg></li></a>
+                                <a href="https://instagram.com/namansethi13/"><li class = "m-2  hover:cursor-pointer">
+                            <svg viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" class="w-12"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6ZM6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6ZM12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9ZM7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12ZM17.5 8C18.3284 8 19 7.32843 19 6.5C19 5.67157 18.3284 5 17.5 5C16.6716 5 16 5.67157 16 6.5C16 7.32843 16.6716 8 17.5 8Z" fill="#ffffff" ></path> </g></svg>
+                        </li></a>
+                    </ul>
                 </div>
             </div>
-        </section>
-    </form>
-    <section class="how">
-        <p>
-            <center>
-            <h1>How it works</h1>
-            <b>First the user can make a site by entering the name of the site and hittng the go button or simply typing the name on the url.</b><br>
-            
-            <b>User flow</b>
-            <ol>
-            <li>If the site is already taken the user is shown a box to enter the password to decrypt the site.</li>
-            
-            <li>If the password is correct the user can access the site and update and delete text or pages.</li>
-            
-            <li>If the password is incorrect there is no way of seeing the data other than brute-forcing the password.</li>
-            
-            <li>If the site is not taken a fresh site is shown where the user can enter data and save it using a password</li>
-            <h2>The data can be accessed and modified anywhere using the same password</h2>
-            </ol>
-            <br>
-        </center>
-        </p>
-    </section>
+            <div class="sitemap">
+                <div class="footerText text-lg mt-4 text-center ">Helpful links</div>
+                <div class="textlinks flex justify-center">
+                    <a class="link m-2  hover:cursor-pointer" href="#main">home</a>
+                    <a class="link m-2  hover:cursor-pointer" href="https://github.com/namansethi13/">about</a>
+                    <a class="link m-2  hover:cursor-pointer" href="#main">Save-my-text</a>
+                </div>
+            </div>
+
+            <div class="others">
+                <a href="mailto:heynamansethi@yahoo.com"><p class="footerText text-lg mt-4 text-center  hover:cursor-pointer">Email: heynamansethi@yahoo.com</p></a>
+                <a href="https://fireship.io/"><p class="footerText text-lg mt-4 text-center  hover:cursor-pointer">Website inspiration : https://fireship.io/</p></a>
+               <p class="footerText text-lg mt-4 text-center ">Copyright @2023 save-my-text</p>
+            </div>
+        </footer>
+    </main>
     
     <div class="alerthere">
     </div>
     
     
 </body>
+<script>
+    $(document).ready(function() {
+        $(window).scroll( function(){
+            $('.fadeinleft').each( function(i){
+                
+                var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                
+                if( bottom_of_window > bottom_of_element ){
+                    $(this).animate({'opacity':'1','margin-left':'0px'},700);
+                }
+                
+            }); 
+        });
+    });
+</script>
 <script src="{% static 'alert.js' %}"></script>
 </html>

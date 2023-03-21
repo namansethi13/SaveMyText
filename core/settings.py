@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^$t$^6h$kborx07r0reavg28bz+)=bpcq5@2^5@ik-15e5a0$o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','.now.sh']
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app','.now.sh' '*','localhost']
 
 
 # Application definition
@@ -82,7 +82,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'rxjaopcl',
     'USER': 'rxjaopcl',
-    'PASSWORD': '___Password_here__',
+    'PASSWORD': 'vx9skW3jSQW3TWgsILlSJZ5ftK1LwVh2',
     # ↓ HOST instead of HOSTS
     'HOST': 'arjuna.db.elephantsql.com',
     'PORT': 5432
