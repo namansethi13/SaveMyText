@@ -2,7 +2,6 @@ let btnbox = document.getElementsByClassName('tabBtns')
 let totaltabs = 0;
 let alertboxbool = false
 let activepage;
-
 let availability = document.getElementById('availability').getAttribute('availability');
 class passwordBox {
     constructor(data) {
@@ -10,17 +9,14 @@ class passwordBox {
 
             this.box = "<div id=\"alert1\" ><div class=\"alert-box border border-black bg-slate-100\"><div class=\"alert-message text-md font-bold text-center\" id =\"alert-message\">" + data + "</div><div class=\"inputPass\"><input id =\"inputPass\" class=\"  border border-black  \" type=\"password\"><div><div class=\"alert-buttons\"><a class=\"cursor-pointer\" id=\"alert-ok\" type=\"button\">Ok</</div><!-- .alert-buttons --></div></div>";
             $(".alerthere").append(this.box);
-            // console.log($(".alerthere"))
             let alertok = document.getElementById("alert-ok");
             let inputPass = document.getElementById("inputPass");     
             alertboxbool = true;
             let textboxes =document.querySelectorAll(".text-area")
-            console.log(textboxes)
             let textlist = []
             textboxes.forEach(element =>{
                 textlist.push(element.value)
             })
-            console.log(textlist)
             alertok.onclick = () => {
                 let validator = document.getElementById('validator').value
                 let password = inputPass.value
@@ -37,7 +33,6 @@ class passwordBox {
                     var decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
 
                     if(decryptedText == 'NamanSethi'){
-                        console.log(true);
                         textlist.forEach((element,index) =>{
                     var encryptedBytes = aesjs.utils.hex.toBytes(element); //concerting back to bytes
                     var aesCtr = new aesjs.ModeOfOperation.ctr(password_256Array, new aesjs.Counter(5));
@@ -49,7 +44,6 @@ class passwordBox {
                     
                     box.title = box.element.value=="" ? "tab " +box.tabno :box.element.value.slice(0,5)
                     let btntextnew = box.title;
-                    // console.log(this.title)
                     box.Ibutton.innerHTML = btntextnew
                 })
                 
@@ -67,6 +61,15 @@ class passwordBox {
                     $(".alert-box").removeClass("shake");
                   }, 200);
 
+
+                  textlist.forEach((element,index) =>{
+                  var encryptedBytes = aesjs.utils.hex.toBytes(element); //concerting back to bytes
+                    var aesCtr = new aesjs.ModeOfOperation.ctr(password_256Array, new aesjs.Counter(5));
+                    var decryptedBytes = aesCtr.decrypt(encryptedBytes); //decrypting
+                    var decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes); //coverting to text
+                    textboxes[index].value = decryptedText
+                  })
+
             }
             }
                 ////////////send data in ajax///////////////
@@ -82,17 +85,17 @@ class passwordBox {
 
     }
 
-console.log(availability)
 
-    function sendajax(thispage,data,validator,ajaxpage){
-        console.log(data)
-        
+ function sendajax(thispage,data,validator,ajaxpage){        
         
         $.ajaxSetup({
         headers: {
             "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value,
         }
     });
+
+
+    
     $.ajax({
         url: ajaxpage,
         method: 'POST',
@@ -104,7 +107,6 @@ console.log(availability)
         dataType: 'json',
         success: function (data) {
             if(data.site_available == "true"){
-                console.log("site is available")
                 window.location = window.location.href+data.site;
 
                 getpass= new alertBox("This site is available. Enter a password");
@@ -118,6 +120,9 @@ console.log(availability)
     });
 
 }
+
+
+
 class textbox{
 
     constructor(element){
@@ -128,23 +133,17 @@ class textbox{
         element.classList.add("hidden");
         let btn = document.createElement("button");
         this.btnbody = btn;
-        // console.log(btn)
         btn.classList.add('rounded-lg', 'text-black', 'border', 'border-black', 'px-4', 'inline-block', 'shadow-xl', 'lg:px-6', 'active' ,'iBtn')
 
         let pTag = document.createElement('p')
         pTag.classList.add('text-md', 'font-extrabold')
         // pTag.textContent = null
-        console.log(btn)
-        console.log(pTag)
         btn.appendChild(pTag)
-        console.log(pTag)
-        console.log(btn)
         this.Ibutton = pTag;
         this.tabno = totaltabs
         $(element).on("change", function() {
             this.title = element.value=="" ? "tab " +totaltabs :element.value.slice(0,5)
             let btntextnew = this.title;
-            // console.log(this.title)
             pTag.innerHTML = btntextnew
         });
         
@@ -165,14 +164,12 @@ class textbox{
 
 let textboxes = document.querySelectorAll(".text-area")
 
-// console.log(textboxes)
 textboxesObjList = []
 textboxes.forEach(element => {
    let box =  new textbox(element)   
    textboxesObjList.push(box) 
    box.title = box.element.value=="" ? "tab " +box.tabno :box.element.value.slice(0,5)
     let btntextnew = box.title;
-            // console.log(this.title)
     box.Ibutton.innerHTML = btntextnew
     totaltabs++;
 
@@ -188,9 +185,9 @@ if(availability == 'false'){
     
    }
 
-textboxesObjList.forEach(element => {
+// textboxesObjList.forEach(element => {
             
-})
+// })
 
 // let addpage = document.getElementById('addpage')
 
@@ -206,7 +203,6 @@ addpage.onclick = () =>{
     let box =  new textbox(element) 
     box.title = "new tab"
     let btntextnew = box.title;
-            // console.log(this.title)
     box.Ibutton.innerHTML = btntextnew
     totaltabs++; 
    textboxesObjList.push(box) 
@@ -214,7 +210,6 @@ addpage.onclick = () =>{
 }
 
 deletepage.onclick = () =>{
-    // console.log(activepage)
     const index = textboxesObjList.indexOf(activepage);
     activepage.element.remove()
     activepage.Ibutton.remove()
@@ -227,7 +222,6 @@ deletepage.onclick = () =>{
     activepage = null;
     totaltabs--;
 
-    console.log(textboxesObjList)
 if (index > -1) { // only splice array when item is found
   textboxesObjList.splice(index, 1); // 2nd parameter means remove one item only
 }
@@ -242,7 +236,6 @@ class alertBox {
 
             this.box = "<div id=\"alert1\" ><div class=\"alert-box border border-black bg-slate-100	\"><div class=\"alert-message text-md font-bold text-center\" id =\"alert-message\">" + data + "</div><div class=\"inputPass\"><input id =\"inputPass\" class=\"  border border-black  \" type=\"password\"><div><div class=\"alert-buttons\"><a class=\"cursor-pointer\" id=\"alert-ok\" type=\"button\">Ok</</div><!-- .alert-buttons --></div></div>";
             $(".alerthere").append(this.box);
-            // console.log($(".alerthere"))
             let alertok = document.getElementById("alert-ok");
             let inputPass = document.getElementById("inputPass");
             
@@ -261,7 +254,6 @@ class alertBox {
                     var text = element.element.value;
                     var textBytes = aesjs.utils.utf8.toBytes(text); // converting text to bytes
                     var aesCtr = new aesjs.ModeOfOperation.ctr(password_256Array, new aesjs.Counter(5)); // ctr to improve efficiency
-                    console.log("h")
                     var encryptedBytes = aesCtr.encrypt(textBytes); //encrypting 
                     var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes); //converting to hex
                     textlist.push(encryptedHex)
@@ -269,11 +261,9 @@ class alertBox {
                     var text = validator;
                     var textBytes = aesjs.utils.utf8.toBytes(text); // converting text to bytes
                     var aesCtr = new aesjs.ModeOfOperation.ctr(password_256Array, new aesjs.Counter(5)); // ctr to improve efficiency
-                    console.log("h")
                     var encryptedBytes = aesCtr.encrypt(textBytes); //encrypting 
                     var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
                     validator = encryptedHex
-                console.log(textlist)
 
 
                 ////////////send data in ajax///////////////

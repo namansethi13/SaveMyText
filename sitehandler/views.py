@@ -55,6 +55,9 @@ def savetext(request):
             temp.save()
 
     else:
+        site = Sites.objects.get(site_url= site_url)
+        site.validator = validator
+        site.save(update_fields=['validator'])
         print("inside")
         text = request.POST.getlist('data[]')
         textboxes = Page.objects.filter(site__in=Sites.objects.filter(site_url= site_url))
