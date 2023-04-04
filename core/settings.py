@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -82,7 +81,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'decbkecj',
     'USER': 'decbkecj',
-    'PASSWOED': os.environ.get('db_pass'), 
+    'PASSWOED': 'a_GuI4ZllTzAAim6UYeBUJxuJh_r4IUP', 
     # ↓ HOST instead of HOSTS
     'HOST': 'floppy.db.elephantsql.com',
     'PORT': 5432
