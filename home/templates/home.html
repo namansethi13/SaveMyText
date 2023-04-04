@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
     <title>SaveMyText</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'tailwind.css' %}">
 
     {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
     <style>
+
         .fadeinleft {
             opacity:0;
             margin-left:-300px;	
@@ -37,7 +37,7 @@
         <p class="mainText font-extrabold text-7xl  text-center">ENTER AN <span class="color-red">EXISTING</span> URL OR CREATE YOUR  <span class="color-green">NEW</span> ONE!</p>
         <div class="emoji flex justify-center text-5xl mt-7 animate-bounce">👇</div>
         <div class="url">
-            <form method="get" id="urlform">
+            <form method="get" id="urlform" action="" >
 
             <div class="flex justify-center mt-10">
                 <p class="urlName hidden md:block font-extrabold text-6xl">save-my-text.com/</p>
@@ -147,6 +147,7 @@
                     <a class="link m-2  hover:cursor-pointer" href="#main">home</a>
                     <a class="link m-2  hover:cursor-pointer" href="https://github.com/namansethi13/">about</a>
                     <a class="link m-2  hover:cursor-pointer" href="#main">Save-my-text</a>
+
                 </div>
             </div>
 
@@ -167,7 +168,7 @@
     $(document).ready(function() {
         $(window).scroll( function(){
             $('.fadeinleft').each( function(i){
-                
+
                 var bottom_of_element = $(this).offset().top + $(this).outerHeight();
                 var bottom_of_window = $(window).scrollTop() + $(window).height();
                 
@@ -178,6 +179,13 @@
             }); 
         });
     });
+
+
+    document.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+        }
+      });
 </script>
 <script src="{% static 'alert.js' %}"></script>
 </html>

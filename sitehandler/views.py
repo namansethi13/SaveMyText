@@ -42,7 +42,6 @@ def savetext(request):
     validator = request.POST['validator']
     site_url = request.POST['url']
     sites = Sites.objects.filter(site_url= site_url)
-    print(f"{len(sites) == 0}")
 
     if(len(sites)== 0):
         created_on = datetime.now()
@@ -58,7 +57,6 @@ def savetext(request):
         site = Sites.objects.get(site_url= site_url)
         site.validator = validator
         site.save(update_fields=['validator'])
-        print("inside")
         text = request.POST.getlist('data[]')
         textboxes = Page.objects.filter(site__in=Sites.objects.filter(site_url= site_url))
         textboxes.delete()

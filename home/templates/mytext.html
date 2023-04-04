@@ -30,6 +30,9 @@
         .border{
             border: 1px solid black;
         }
+        textarea {
+            resize: none;
+          }
     </style>
     {% comment %} <script src="script.js" defer type="module"></script> {% endcomment %}
 </head>
@@ -66,7 +69,7 @@
     <main class="mt-12 md:mt-20 bg-gray-200 w-screen h-200 h-[60rem]">
         <section class="flex" v-scope="{ count: 0 }" v-scope="app({ initialCount: 1 })"
             id="section">
-            <div class="grid grid-cols-4 md:grid-cols-10 gap-2 mt-6 2xl:grid-cols-24 tabBtns" id="btn">
+            <div class="grid grid-cols-4 md:grid-cols-10 gap-2 mt-6 tabBtns" id="btn">
 
             </div>
             <div class="mb-2 w-24 flex justify-center md:justify-evenly  h-12 mt-6 lg:w-96">
@@ -84,6 +87,11 @@
                     class="rounded-lg bg-yellow-200 text-black border border-black px-3 mr-10 h-8 inline-block shadow-xl mt-12 ml-0">
                     <p class="text-sm font-bold" id = "refreshpage">Reload</p>
                 </button>
+                <button
+                    class="rounded-lg bg-sky-600 text-black border border-black px-3 mr-10 h-8 inline-block shadow-xl mt-12 ml-0">
+                    <p class="text-sm font-bold"  id="changepassword">Change password</p>
+                </button>
+
                 <button
                     class="rounded-lg bg-red-300 text-black border border-black px-3 mr-10 h-8 inline-block shadow-xl mt-12 ml-0">
                     <p class="text-sm font-bold"  id="deletepage">Delete</p>

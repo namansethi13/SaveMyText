@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
+    <title>SaveMyText</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'tailwind.css' %}">
+
+    {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+    <style>
+
+        .fadeinleft {
+            opacity:0;
+            margin-left:-300px;	
+            max-width:100%;
+        }
+    </style>
+    {% comment %} <meta ajaxpage="{% url 'open_page_ajax' %}"
+    id = "ajax_page"> {% endcomment %}
+
+</head>
+<body class="background overflow-hidden overflow-y-scroll">
+
+    <main class="mt-12 md:mt-12" id="main">
+        <p class="mainText font-extrabold text-7xl  text-center">😔 Not found or maybe you have entered an <span class="color-red">ILLEGAL/SPECIAL CHARACTER </span> in the url</p>
+        <p class="mainText font-extrabold text-7xl  text-center mt-12"><span class="color-green">TRY AGAIN?</span></p>
+        <div class="emoji flex justify-center text-5xl mt-7 animate-bounce">👇</div>
+
+        <div class="flex justify-center">
+        <a href="/" ><button type="button" class="bg-red-400 mt-6 ml-3 inline-block rounded-2xl bg-primary px-2 py-5 text-xl font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"><p class="font-bold text-4xl">SAVE MY TEXT!</p></button></a>
+        </div>
+    </main>
+</body>
+
+<script src="{% static 'alert.js' %}"></script>
+</html>
