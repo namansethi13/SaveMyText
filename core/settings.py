@@ -81,7 +81,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'decbkecj',
     'USER': 'decbkecj',
-    'PASSWOED': 'a_GuI4ZllTzAAim6UYeBUJxuJh_r4IUP', 
+    'PASSWORD': 'a_GuI4ZllTzAAim6UYeBUJxuJh_r4IUP',
     # ↓ HOST instead of HOSTS
     'HOST': 'floppy.db.elephantsql.com',
     'PORT': 5432
