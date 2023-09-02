@@ -355,10 +355,11 @@ savebtn = document.getElementById('savetext');
 savebtn.onclick = () => {
     const cookies = document.cookie;
     const siteCookie = cookies.split(";").map(cookie => cookie.trim()).find(cookie => cookie.startsWith("sitepass="));
-    if (siteCookie) {
+    if (siteCookie ) {
         const jsonString = decodeURIComponent(siteCookie.split("=")[1]);
         const sitepass = JSON.parse(jsonString);
-            let validator = "NamanSethi"
+        if(sitepass.url ===  window.location.pathname){
+        let validator = "NamanSethi"
         let textlist = []
         var password_256Array = sitepass.pass.split(""); //makeing it an array
         password_256Array.forEach((element, index) => {
@@ -390,7 +391,14 @@ savebtn.onclick = () => {
         $(".alerthere").empty()
         alertboxbool = false;
 
+    } 
+
+    else{
+
+        new alertBox("Please enter password for this page")
     }
+
+}
 
     else{
 
