@@ -358,10 +358,7 @@ savebtn.onclick = () => {
     if (siteCookie ) {
         const jsonString = decodeURIComponent(siteCookie.split("=")[1]);
         const sitepass = JSON.parse(jsonString);
-        console.log(jsonString);
-        console.log(sitepass.url);
-        console.log(window.location.pathname);
-        if(sitepass.url ===  window.location.pathname){
+        if(sitepass.site ===  window.location.pathname){
         let validator = "NamanSethi"
         let textlist = []
         var password_256Array = sitepass.pass.split(""); //makeing it an array
